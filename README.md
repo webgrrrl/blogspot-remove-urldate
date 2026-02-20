@@ -12,10 +12,10 @@ This script redirects Blogger blog URLs to cleaner, date-free versions by:
 ## Modifications
 
 The updated version includes critical security and reliability improvements to prevent runtime errors and potential vulnerabilities. Here are the key modifications:
-1. Error handling and guard in urlMod() to prevent crashes if substring or indexOf operations return unexpected values; ensures valid indices before accessing substrings.
-1. URL validation and security in urlSearch() prevents open redirect vulnerabilities.
-1. Fetch-first with JSONP fallback for getJSON() by using fetch API (promises) instead of relying solely on JSONP script injection; better error handling, fallback mechanism, CORS support, and cross-browser compatibility.
-1. Defensive null checking in bloggerJSON() prevents "Cannot read property of undefined" errors if API response is malformed or with unexpected structure.
+1. Error handling and guard in `urlMod()` to prevent crashes if substring or indexOf operations return unexpected values; ensures valid indices before accessing substrings.
+1. URL validation and security in `urlSearch()` prevents open redirect vulnerabilities.
+1. Fetch-first with JSONP fallback for `getJSON()` by using fetch API (promises) instead of relying solely on JSONP script injection; better error handling, fallback mechanism, CORS support, and cross-browser compatibility.
+1. Defensive null checking in `bloggerJSON()` prevents "Cannot read property of undefined" errors if API response is malformed or with unexpected structure.
 
 ## Features
 
