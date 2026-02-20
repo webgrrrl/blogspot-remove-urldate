@@ -41,12 +41,6 @@ Optional variables you can set before the script runs:
 3. **URL Matching**: Searches fetched URLs for a match to the current page
 4. **Redirection**: Redirects to the matching URL if found
 
-## Commit History
-
-- **Initial commit**: Project setup with core functionality
-- **Security improvements**: Added fetch-first JSON + JSONP fallback, link validation, and guards
-- **Documentation**: Record of modifications and updates
-
 ## Credits
 
 - **Original Author**: Kenny Cruz (2017-2018)
