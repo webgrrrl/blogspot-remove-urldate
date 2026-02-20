@@ -14,12 +14,9 @@ export default {
 
         const response = await fetch(request);
 
-        // 3. If the clean URL 404s, we try to find the match
+        // 3. If the clean URL 404s, we try to find the match based on your RSS feed.
         if (response.status === 404) {
-            // This is where you'd use your Blogger API or a Sitemap lookup
-            // Simplified: Redirecting back to the most likely date format
-            // Or, better yet, fetching your blog's RSS feed to find the real link
-            const rssUrl = `https://YOUR_BLOG_NAME.OR_CUSTOM.DOMAIN/feeds/posts/default?alt=json&q=${path.replace(/\//g, "")}`;
+            const rssUrl = `https://YOUR_CUSTOM_BLOG_URL/feeds/posts/default?alt=json&q=${path.replace(/\//g, "")}`;
             const feedResponse = await fetch(rssUrl);
             const data = await feedResponse.json();
 
