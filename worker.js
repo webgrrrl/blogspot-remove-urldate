@@ -14,7 +14,7 @@ export default {
 
         const response = await fetch(request);
 
-        // 3. If the clean URL 404s, we try to find the match based on your RSS feed.
+        // 3. If the clean URL 404s, we try to find the match proxy the content from the original Blogger feed.
         if (response.status === 404) {
             const rssUrl = `https://YOUR_CUSTOM_BLOG_URL/feeds/posts/default?alt=json&q=${path.replace(/\//g, "")}`;
             const feedResponse = await fetch(rssUrl);
@@ -22,7 +22,8 @@ export default {
 
             if (data.feed.entry && data.feed.entry.length > 0) {
                 const originalUrl = data.feed.entry[0].link.find(l => l.rel === 'alternate').href;
-                return Response.redirect(originalUrl, 301);
+                const originalResponse = await fetch(originalUrl);
+                return new Response(originalResponse.body, originalResponse);
             }
         }
 
