@@ -35,7 +35,7 @@ These components work in tandem: the client-side script handles the display laye
 
 ### Server-side (worker.js with Cloudflare Worker or equivalent)
 1. **Incoming Request Handling**: Intercepts requests to clean URLs
-2. **404 Detection**: If a clean URL doesn't exist, uses Blogger's feed API to find the actual date-prefixed URL
+2. **404 Detection**: If a clean URL doesn't exist, uses RSS to find the actual date-prefixed URL
 3. **Redirect**: Returns a 301 permanent redirect to the correct date-prefixed URL on Blogger
 
 ## Installation
@@ -70,4 +70,4 @@ Let's assume you're using Cloudflare, and that you're using a custom domain. Thi
 
 ## Notes
 
-This tool is designed for Blogger blogs and requires the blog's feed to be publicly accessible for the default feed method to work.
+This tool is designed for Blogger blogs and requires the blog's feed to be publicly accessible for the default feed method to work. Additionally, ensure that your Blogger template uses a `<link>` tag for `canonical` that points to your `\YYYY\MM\post.html` post URLs (simplyy View Source and search for `canonical` to verify) to avoid any indexing issues in Google Search Console.
